@@ -3,9 +3,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUserfind, selectConnectuser } from '../../redux/slices/userSlice';
-import Classlistdeliverybycompany from './ahmed/Classlistdeliverybycompany';
+import Classdeliverymanagement from './ahmed/Classdeliverymanagement';
 
-export default function Delivery(props) {
+export default function DeliveryManagement(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
 
@@ -23,8 +23,8 @@ export default function Delivery(props) {
 
   return (
     <div>
-      <h1>i'm Delivery</h1>
-      <Classlistdeliverybycompany con={connectUser} />
+      <h1>i'm DeliveryManagement</h1>
+      <Classdeliverymanagement con={connectUser} />
     </div>
   );
 }
