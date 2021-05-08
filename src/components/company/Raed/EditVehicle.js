@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserfind, selectConnectuser } from '../../redux/slices/userSlice';
-import LandingPage from '../company/Raed/LandingPage';
-export default function Vehicle(props) {
+import {
+  loginUserfind,
+  selectConnectuser,
+} from '../../../redux/slices/userSlice';
+import EditVehicule from './EditVehicule';
+export default function EditVehicle(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
 
@@ -20,9 +23,5 @@ export default function Vehicle(props) {
     }
   }, [Cookies.get()]);
 
-  return (
-    <div>
-      <LandingPage userId={connectUser}></LandingPage>
-    </div>
-  );
+  return <EditVehicule></EditVehicule>;
 }

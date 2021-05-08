@@ -34,12 +34,16 @@ import VehicleTourUser from './user/VehicleTour';
 import circuitUser from './user/Circuit';
 import addcircuitUser from './user/AddCircuit';
 import updatecircuitUser from './user/UpdateCircuit';
-// import AddVehiculeCompany from './company/Raed/AddVehicle';
+import AddVehiculeCompany from './company/Raed/AddVehicle';
 import Addlivreur from './company/ahmed/Addlivreur';
 import Detailslivreur from './company/ahmed/Detailslivreur';
 import Editlivreur from './company/ahmed/Editlivreur';
 import DeliveryManagement from './company/DeliveryManagement';
 import Statsdeliyers from './company/ahmed/STAT/Statsdeliyers';
+import DetailsVehicleCompany from './company/Raed/DetailsVehicle';
+import EditVehicleCompany from './company/Raed/EditVehicle';
+import ArchiveVehicle from './company/Raed/ArchiveVehicle';
+import StatsVehicle from './company/Raed/StatsVehicle';
 
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
@@ -170,7 +174,7 @@ export default function HomeUser(props) {
                   path="/homeuser/company/deliveryman"
                   component={DeliveryManCompany}
                 />
-                {/* <Route
+                <Route
                   path="/homeuser/company/vehicle/add"
                   component={AddVehiculeCompany}
                 />
@@ -181,7 +185,16 @@ export default function HomeUser(props) {
                 <Route
                   path="/homeuser/company/vehicle/edit/:id"
                   component={EditVehicleCompany}
-                /> */}
+                />
+                <Route
+                  path="/homeuser/company/vehicle/archive"
+                  component={ArchiveVehicle}
+                />
+                <Route
+                  path="/homeuser/company/vehicle/stats"
+                  component={StatsVehicle}
+                />
+
                 <Route
                   path="/homeuser/company/vehicle"
                   component={VehicleCompany}
@@ -190,6 +203,7 @@ export default function HomeUser(props) {
                   path="/homeuser/company/delivery"
                   component={DeliveryCompany}
                 />
+
                 <Route
                   path="/homeuser/company/addlivreeur"
                   component={Addlivreur}
