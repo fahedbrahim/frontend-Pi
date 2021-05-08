@@ -1,14 +1,14 @@
-import "../styles/Sidebar.css";
-import { NavLink } from "react-router-dom";
-import { selectConnectuser } from "../redux/slices/userSlice";
-import { useSelector } from "react-redux";
+import '../styles/Sidebar.css';
+import { NavLink } from 'react-router-dom';
+import { selectConnectuser } from '../redux/slices/userSlice';
+import { useSelector } from 'react-redux';
 
 export default function Sidebar() {
   const [connectUser, error] = useSelector(selectConnectuser);
 
   return (
     <>
-      {connectUser.role === "user" ? (
+      {connectUser.role === 'user' ? (
         <div id="bodysidebar">
           <div className="navigation">
             <ul>
@@ -18,7 +18,7 @@ export default function Sidebar() {
                     <i className="fa fa-home"></i>
                   </span>
                   <span className="title">Home</span>
-                </NavLink >
+                </NavLink>
               </li>
               <li>
                 <NavLink to="/homeuser/user/profile">
@@ -58,7 +58,7 @@ export default function Sidebar() {
       ) : (
         <></>
       )}
-      {connectUser.role === "admin" ? (
+      {connectUser.role === 'admin' ? (
         <div id="bodysidebar">
           <div className="navigation">
             <ul>
@@ -108,7 +108,7 @@ export default function Sidebar() {
       ) : (
         <></>
       )}
-      {connectUser.role === "company" ? (
+      {connectUser.role === 'company' ? (
         <div id="bodysidebar">
           <div className="navigation">
             <ul>
@@ -150,6 +150,73 @@ export default function Sidebar() {
                     <i className="fa fa-archive"></i>
                   </span>
                   <span className="title">Delivery</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/company/deliverymanagementbyadmincompany">
+                  <span className="icon">
+                    <i className="fa fa-upload"></i>
+                  </span>
+                  <span className="title">Delivery Management</span>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/homeuser/company/statdelivery">
+                  <span className="icon">
+                    <i className=" fa fa-bar-chart"></i>
+                  </span>
+                  <span className="title">Statistic</span>
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+      {connectUser.role === 'deliveryMan' ? (
+        <div id="bodysidebar">
+          <div className="navigation">
+            <ul>
+              <li>
+                <NavLink exact to="/homeuser">
+                  <span className="icon">
+                    <i className="fa fa-home"></i>
+                  </span>
+                  <span className="title">Home</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/deliveryMan/profile">
+                  <span className="icon">
+                    <i className="fa fa-user"></i>
+                  </span>
+                  <span className="title">Profile</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/deliveryMan/mydelivery">
+                  <span className="icon">
+                    <i className="fa fa-archive"></i>
+                  </span>
+                  <span className="title">My Delivery</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/deliveryMan/ciruitdeliveryman">
+                  <span className="icon">
+                    <i className="fa fa-archive"></i>
+                  </span>
+                  <span className="title">ciruit</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/deliveryMan/archiveciruitdeliveryman">
+                  <span className="icon">
+                    <i className="fa fa-folder-open"></i>
+                  </span>
+                  <span className="title">Archive</span>
                 </NavLink>
               </li>
             </ul>

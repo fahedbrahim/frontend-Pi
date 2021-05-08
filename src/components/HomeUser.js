@@ -44,6 +44,14 @@ import DetailsVehicleCompany from './company/Raed/DetailsVehicle';
 import EditVehicleCompany from './company/Raed/EditVehicle';
 import ArchiveVehicle from './company/Raed/ArchiveVehicle';
 import StatsVehicle from './company/Raed/StatsVehicle';
+import Classeditdelivery from './user/Classeditdelivery';
+import Classdetailsdelivery from './user/Classdetailsdelivery';
+import BarcodeGenerator from './user/QR/BarcodeGenerator';
+import HomeDeliveryman from './user/HomeDeliveryman';
+import ProfileDeliveryMan from './user/ProfileDeliveryMan';
+import DeliveryManPackage from './user/DeliveryManPackage';
+import CiruitDeliveryMan from './user/Map/CiruitDeliveryMan';
+import Functionarchive from './user/ARCHIVE/Functionarchive';
 
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
@@ -91,7 +99,7 @@ export default function HomeUser(props) {
                   component={ListDeliveryUser}
                 />
                 <Route
-                  path="/homeuser/user/makedeliveryuser"
+                  path="/homeuser/user/makedeliveryuser/:id"
                   component={MakeDeliveryUser}
                 />
                 <Route
@@ -101,6 +109,18 @@ export default function HomeUser(props) {
                 <Route
                   path="/homeuser/user/vehicletour"
                   component={VehicleTourUser}
+                />
+                <Route
+                  path="/homeuser/user/editdelivery/:id"
+                  component={Classeditdelivery}
+                />
+                <Route
+                  path="/homeuser/user/detailsdelivery/:id"
+                  component={Classdetailsdelivery}
+                />
+                <Route
+                  path="/homeuser/user/generateqrcode"
+                  component={BarcodeGenerator}
                 />
                 <Route
                   path="/homeuser/user/circuit/:id"
@@ -223,6 +243,31 @@ export default function HomeUser(props) {
                 <Route
                   path="/homeuser/company/statdelivery"
                   component={Statsdeliyers}
+                />
+              </Switch>
+            </div>
+          ) : (
+            <></>
+          )}
+          {connectUser.role === 'deliveryMan' ? (
+            <div className="col-9 " id="heigthHompage">
+              <Switch>
+                <Route path="/homeuser" exact component={HomeDeliveryman} />
+                <Route
+                  path="/homeuser/deliveryMan/profile"
+                  component={ProfileDeliveryMan}
+                />
+                <Route
+                  path="/homeuser/deliveryMan/mydelivery"
+                  component={DeliveryManPackage}
+                />
+                <Route
+                  path="/homeuser/deliveryMan/ciruitdeliveryman"
+                  component={CiruitDeliveryMan}
+                />
+                <Route
+                  path="/homeuser/deliveryMan/archiveciruitdeliveryman"
+                  component={Functionarchive}
                 />
               </Switch>
             </div>

@@ -1,11 +1,16 @@
+import React from 'react';
 import { useEffect } from 'react';
+
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserfind, selectConnectuser } from '../../redux/slices/userSlice';
-import Classlistdeliverycompany from './Classlistdeliverycompany';
+import {
+  loginUserfind,
+  selectConnectuser,
+} from '../../.././redux/slices/userSlice';
+import Archiveciruitdeliveruman from './Archiveciruitdeliveruman';
 
-export default function Company(props) {
+const Functionarchive = (props) => {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
 
@@ -20,11 +25,12 @@ export default function Company(props) {
       });
     }
   }, [Cookies.get()]);
-
   return (
     <div style={{ height: '700px' }}>
-      <h1>i'm Company</h1>
-      <Classlistdeliverycompany con={connectUser} />
+      <h1>Archive</h1>
+      <Archiveciruitdeliveruman con={connectUser} />
     </div>
   );
-}
+};
+
+export default Functionarchive;

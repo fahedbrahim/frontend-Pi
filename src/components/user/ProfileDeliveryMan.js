@@ -1,10 +1,14 @@
+import React from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUserfind, selectConnectuser } from '../../redux/slices/userSlice';
-
-export default function Profile(props) {
+import {
+  loginUserfind,
+  selectConnectuser,
+} from '../../../src/redux/slices/userSlice';
+// import '../../styles/Ahmed/delivermanprofil.css';
+const ProfileDeliveryMan = (props) => {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
 
@@ -19,7 +23,6 @@ export default function Profile(props) {
       });
     }
   }, [Cookies.get()]);
-
   return (
     <div style={{ height: '700px' }}>
       <body className="bg-light">
@@ -67,4 +70,6 @@ export default function Profile(props) {
       </body>
     </div>
   );
-}
+};
+
+export default ProfileDeliveryMan;
