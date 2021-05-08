@@ -3,7 +3,7 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import ArchiveVehicule from './ArchiveVehicule';
 import { Link } from 'react-router-dom';
-
+import '../../../styles/Raed/car.css';
 class App extends Component {
   // API_ENDPOINT = 'http://localhost:8000/'
   constructor(props) {

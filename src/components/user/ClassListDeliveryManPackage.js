@@ -408,13 +408,14 @@ export default function ClassListDeliveryManPackage(props) {
         <input
           type="text"
           className="search"
+          style={{ marginTop: '190px' }}
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={search}
         />
         {weather.main && (
-          <div className="city">
+          <div className="city" style={{ marginBottom: '250px' }}>
             <h2 className="city-name">
               <span>{weather.name}</span>
               <sup>{weather.sys.country}</sup>

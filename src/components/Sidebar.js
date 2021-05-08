@@ -206,7 +206,7 @@ export default function Sidebar() {
               <li>
                 <NavLink to="/homeuser/deliveryMan/ciruitdeliveryman">
                   <span className="icon">
-                    <i className="fa fa-archive"></i>
+                    <i className="fa fa-map"></i>
                   </span>
                   <span className="title">ciruit</span>
                 </NavLink>
