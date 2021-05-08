@@ -1,0 +1,43 @@
+@media (min-width: 992px) {
+  #mainnav {
+    padding-left: 70px;
+    padding-right: 70px;
+    
+  }
+}
+
+nav{
+  background-color: #ced1d3;
+}
+
+.nav-item {
+  margin-right: 5px;
+  font-size: 16px;
+}
+.navbar-brand{
+  font-size: 23px;
+}
+
+#contact {
+  padding-right: 30px;
+}
+
+#login {
+  color: #ff8b3d;
+}
+
+#signup {
+  color: #ff8b3d;
+}
+#logout{
+  color: #ff8b3d;
+}
+#Workspace{
+  color: #ff8b3d;
+}
+
+#logo {
+  width: 80px;
+  height: 80px;
+  margin-right: 25px;
+}

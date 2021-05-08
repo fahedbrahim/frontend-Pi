@@ -3,13 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "aos": "^2.3.4",
+    "axios": "^0.21.1",
+    "bootstrap": "^4.6.0",
+    "chart.js": "^2.9.4",
+    "deck.gl": "^8.4.13",
+    "jquery": "^3.6.0",
+    "js-cookie": "^2.2.1",
+    "leaflet": "^1.4.0",
+    "leaflet-routing-machine": "^3.2.12",
+    "mapbox-gl": "^2.2.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-chartjs-2": "^2.11.1",
+    "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-google-maps": "^9.4.5",
+    "react-leaflet": "^2.2.1",
+    "react-map-gl": "^6.1.11",
+    "react-mapbox-gl": "^5.1.1",
+    "react-paginate": "^7.1.2",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.0"
+    "styled-components": "^5.2.3",
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,6 +39,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -34,5 +57,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.7.0"
   }
 }
