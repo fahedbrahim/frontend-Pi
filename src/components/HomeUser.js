@@ -1,77 +1,88 @@
-import { useEffect } from 'react';
-import '../styles/HomeUser.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import { selectConnectuser, loginUserfind } from '../redux/slices/userSlice';
-import { fetchUsers } from '../redux/slices/admin/usersSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import Sidebar from './Sidebar';
-import Test from './test';
-import DashboardAdmin from './admin/Dashboard';
-import ProfileAdmin from './admin/Profile';
-import UsersAdmin from './admin/Users';
-import CompanyAdmin from './admin/Company';
-import CompanyWaitingAdmin from './admin/CompanyWaiting';
-import DeliveryAdmin from './admin/Delivery';
-import UserscircuitAdmin from './admin/Userscircuit';
-import UpdateUserAdmin from './admin/UpdateUser';
-import UpdateCompanyAdmin from './admin/UpdateCompany';
-import ChangePasswordAdmin from './admin/ChangePassword';
-import HomeCompany from './company/Home';
-import ProfileCompany from './company/Profile';
-import DeliveryManCompany from './company/DeliveryMan';
-import VehicleCompany from './company/Vehicle';
-import DeliveryCompany from './company/Delivery';
-import HomeForUser from './user/Home';
-import CompanyUser from './user/Company';
-import ProfileUser from './user/Profile';
-import DeliveryUser from './user/Delivery';
-import ListDeliveryUser from './user/ListDelivery';
-import MakeDeliveryUser from './user/MakeDelivery';
-import StateDeliveryUser from './user/StateDelivery';
-import VehicleTourUser from './user/VehicleTour';
-import circuitUser from './user/Circuit';
-import addcircuitUser from './user/AddCircuit';
-import updatecircuitUser from './user/UpdateCircuit';
-import AddVehiculeCompany from './company/Raed/AddVehicle';
-import Addlivreur from './company/ahmed/Addlivreur';
-import Detailslivreur from './company/ahmed/Detailslivreur';
-import Editlivreur from './company/ahmed/Editlivreur';
-import DeliveryManagement from './company/DeliveryManagement';
-import Statsdeliyers from './company/ahmed/STAT/Statsdeliyers';
-import DetailsVehicleCompany from './company/Raed/DetailsVehicle';
-import EditVehicleCompany from './company/Raed/EditVehicle';
-import ArchiveVehicle from './company/Raed/ArchiveVehicle';
-import StatsVehicle from './company/Raed/StatsVehicle';
-import Classeditdelivery from './user/Classeditdelivery';
-import Classdetailsdelivery from './user/Classdetailsdelivery';
-import BarcodeGenerator from './user/QR/BarcodeGenerator';
-import HomeDeliveryman from './user/HomeDeliveryman';
-import ProfileDeliveryMan from './user/ProfileDeliveryMan';
-import DeliveryManPackage from './user/DeliveryManPackage';
-import CiruitDeliveryMan from './user/Map/CiruitDeliveryMan';
-import Functionarchive from './user/ARCHIVE/Functionarchive';
+import { useEffect } from "react";
+import "../styles/HomeUser.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { selectConnectuser, loginUserfind } from "../redux/slices/userSlice";
+import { fetchUsers } from "../redux/slices/admin/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Sidebar from "./Sidebar";
+import Test from "./test";
+import DashboardAdmin from "./admin/Dashboard";
+import ProfileAdmin from "./admin/Profile";
+import UsersAdmin from "./admin/Users";
+import CompanyAdmin from "./admin/Company";
+import CompanyWaitingAdmin from "./admin/CompanyWaiting";
+import DeliveryAdmin from "./admin/Delivery";
+import UserscircuitAdmin from "./admin/Userscircuit";
+import UpdateUserAdmin from "./admin/UpdateUser";
+import UpdateCompanyAdmin from "./admin/UpdateCompany";
+import ChangePasswordAdmin from "./admin/ChangePassword";
+import Service from "./admin/service/Service";
+
+import HomeCompany from "./company/Home";
+import ProfileCompany from "./company/Profile";
+import DeliveryManCompany from "./company/DeliveryMan";
+import VehicleCompany from "./company/Vehicle";
+import DeliveryCompany from "./company/Delivery";
+import HomeForUser from "./user/Home";
+import CompanyUser from "./user/Company";
+import ProfileUser from "./user/Profile";
+import DeliveryUser from "./user/Delivery";
+import ListDeliveryUser from "./user/ListDelivery";
+import MakeDeliveryUser from "./user/MakeDelivery";
+import StateDeliveryUser from "./user/StateDelivery";
+import VehicleTourUser from "./user/VehicleTour";
+import circuitUser from "./user/Circuit";
+import addcircuitUser from "./user/AddCircuit";
+import updatecircuitUser from "./user/UpdateCircuit";
+import offerServiceUser from "./user/eya/OfferService";
+import ListeLivraison from "./user/service/ListeLivraison";
+import ListeLivraisonCustomer from "./user/customer/ListeLivraisons/ListeLivraison";
+
+import AddVehiculeCompany from "./company/Raed/AddVehicle";
+import Addlivreur from "./company/ahmed/Addlivreur";
+import Detailslivreur from "./company/ahmed/Detailslivreur";
+import Editlivreur from "./company/ahmed/Editlivreur";
+import DeliveryManagement from "./company/DeliveryManagement";
+import Statsdeliyers from "./company/ahmed/STAT/Statsdeliyers";
+import DetailsVehicleCompany from "./company/Raed/DetailsVehicle";
+import EditVehicleCompany from "./company/Raed/EditVehicle";
+import ArchiveVehicle from "./company/Raed/ArchiveVehicle";
+import StatsVehicle from "./company/Raed/StatsVehicle";
+import ListeLivraisonCompany from "./company/ListeLivraisons/ListeLivraison";
+import stat from "./company/ChartStat";
+import ProviderCompany from "./company/Provider";
+
+
+import Classeditdelivery from "./user/Classeditdelivery";
+import Classdetailsdelivery from "./user/Classdetailsdelivery";
+import BarcodeGenerator from "./user/QR/BarcodeGenerator";
+import HomeDeliveryman from "./user/HomeDeliveryman";
+import ProfileDeliveryMan from "./user/ProfileDeliveryMan";
+import DeliveryManPackage from "./user/DeliveryManPackage";
+import CiruitDeliveryMan from "./user/Map/CiruitDeliveryMan";
+import Functionarchive from "./user/ARCHIVE/Functionarchive";
 
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
 
   useEffect(async () => {
-    if (Cookies.get('connect.sid')) {
+    if (Cookies.get("connect.sid")) {
     } else {
-      await axios.get('/auth/logout', { withCredentials: true }).then((res) => {
+      await axios.get("/auth/logout", { withCredentials: true }).then((res) => {
         console.log(res);
-        localStorage.removeItem('userInfo');
+        localStorage.removeItem("userInfo");
         dispatch(loginUserfind(res.data));
-        props.history.push('/');
+        props.history.push("/");
       });
     }
   }, [Cookies.get()]);
 
   useEffect(() => {
-    if (Cookies.get('connect.sid')) {
-      if (connectUser.role === 'admin') {
+    if (Cookies.get("connect.sid")) {
+      if (connectUser.role === "admin") {
         dispatch(fetchUsers());
       }
     }
@@ -84,7 +95,7 @@ export default function HomeUser(props) {
           <div className="col-2 " style={{ padding: 0 }}>
             <Sidebar />
           </div>
-          {connectUser.role === 'user' ? (
+          {connectUser.role === "user" ? (
             <div className="col-9 " id="heigthHompage">
               <Switch>
                 <Route path="/homeuser" exact component={HomeForUser} />
@@ -134,12 +145,24 @@ export default function HomeUser(props) {
                   path="/homeuser/user/updatecircuit/:id"
                   component={updatecircuitUser}
                 />
+                <Route
+                  path="/homeuser/user/offerService"
+                  component={offerServiceUser}
+                />
+                <Route
+                  path="/homeuser/user/listeLivraison"
+                  component={ListeLivraison}
+                />
+                <Route
+                  path="/homeuser/user/listeLivraisonCustomer"
+                  component={ListeLivraisonCustomer}
+                />
               </Switch>
             </div>
           ) : (
             <></>
           )}
-          {connectUser.role === 'admin' ? (
+          {connectUser.role === "admin" ? (
             <div className="col-9 " id="heigthHompage">
               <Switch>
                 <Route path="/homeuser" exact component={DashboardAdmin} />
@@ -176,13 +199,14 @@ export default function HomeUser(props) {
                   path="/homeuser/admin/changepassword"
                   component={ChangePasswordAdmin}
                 />
+                <Route path="/homeuser/admin/services" component={Service} />
                 <Route component={DashboardAdmin} />
               </Switch>
             </div>
           ) : (
             <></>
           )}
-          {connectUser.role === 'company' ? (
+          {connectUser.role === "company" ? (
             <div className="col-9 " id="heigthHompage">
               <Switch>
                 <Route path="/homeuser" exact component={HomeCompany} />
@@ -244,12 +268,24 @@ export default function HomeUser(props) {
                   path="/homeuser/company/statdelivery"
                   component={Statsdeliyers}
                 />
+                 <Route
+                  path="/homuser/company/provider"
+                  component={ProviderCompany}
+                />
+                <Route
+                  path="/homuser/company/deliveries"
+                  component={ListeLivraisonCompany}
+                />
+                 <Route
+                  path="/homuser/company/stat"
+                  component={stat}
+                />
               </Switch>
             </div>
           ) : (
             <></>
           )}
-          {connectUser.role === 'deliveryMan' ? (
+          {connectUser.role === "deliveryMan" ? (
             <div className="col-9 " id="heigthHompage">
               <Switch>
                 <Route path="/homeuser" exact component={HomeDeliveryman} />

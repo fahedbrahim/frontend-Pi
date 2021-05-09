@@ -2,9 +2,50 @@ import '../styles/Sidebar.css';
 import { NavLink } from 'react-router-dom';
 import { selectConnectuser } from '../redux/slices/userSlice';
 import { useSelector } from 'react-redux';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export default function Sidebar() {
   const [connectUser, error] = useSelector(selectConnectuser);
+
+
+  const [livraisons, setlivraisons] = useState(null);
+
+  const [livraisonsCustomer, setlivraisonsCustomer] = useState(null);
+  useEffect(() => {
+    axios
+      .post(`/livraison/getLivraisonsByProvider`, {
+        idProvdier: JSON.parse(localStorage.getItem("userInfo")).id,
+      })
+      .then((res) => {
+        try {
+          if (
+            res.data.livraison.length > 0 &&
+            JSON.parse(localStorage.getItem("userInfo")).id_Provider
+          ) {
+            console.log("resss1", res);
+            setlivraisons(res.data.livraison);
+          } else if (
+            res.data.livraison.length > 0 &&
+            !JSON.parse(localStorage.getItem("userInfo")).id_Provider
+          ) {
+            console.log("resss2", res);
+           
+    axios
+    .post(`/livraison/getLivraisonsByCustomer`, {
+      id: JSON.parse(localStorage.getItem("userInfo")).id,
+    })
+    .then((res) => {
+      setlivraisonsCustomer(res.data.livraison);
+    });
+          }
+        } catch (error) {}
+      });
+
+  }, []);
+
+
+
 
   return (
     <>
@@ -52,6 +93,34 @@ export default function Sidebar() {
                   <span className="title">Vehicle Tour</span>
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/homeuser/user/offerService">
+                  <span className="icon">
+                    <i className="fa fa-server"></i>
+                  </span>
+                  <span className="title">Service</span>
+                </NavLink>
+              </li>
+              {livraisons != null ? (
+                <li>
+                  <NavLink to="/homeuser/user/listeLivraison">
+                    <span className="icon">
+                      <i className="fa fa-server"></i>
+                    </span>
+                    <span className="title">Affectation</span>
+                  </NavLink>
+                </li>
+              ) : null}
+              {livraisonsCustomer != null ? (
+                <li>
+                  <NavLink to="/homeuser/user/listeLivraisonCustomer">
+                    <span className="icon">
+                      <i className="fa fa-server"></i>
+                    </span>
+                    <span className="title">Circuit</span>
+                  </NavLink>
+                </li>
+              ) : null}
             </ul>
           </div>
         </div>
@@ -100,6 +169,14 @@ export default function Sidebar() {
                     <i className="fa fa-archive"></i>
                   </span>
                   <span className="title">Delivery</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/admin/services">
+                  <span className="icon">
+                    <i class="fa fa-user-circle"></i>
+                  </span>
+                  <span className="title">Services</span>
                 </NavLink>
               </li>
             </ul>
@@ -167,6 +244,31 @@ export default function Sidebar() {
                     <i className=" fa fa-bar-chart"></i>
                   </span>
                   <span className="title">Statistic</span>
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/homuser/company/provider">
+                  <span className="icon">
+                    <i className="fa fa-server"></i>
+                  </span>
+                  <span className="title">Provider</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homuser/company/deliveries">
+                  <span className="icon">
+                    <i className="fa fa-th"></i>
+                  </span>
+                  <span className="title">Deliveries</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homuser/company/stat">
+                  <span className="icon">
+                    <i className="fa fa-pie-chart"></i>
+                  </span>
+                  <span className="title">Chart Provider</span>
                 </NavLink>
               </li>
             </ul>
