@@ -101,6 +101,32 @@ export default function Sidebar() {
                   <span className="title">Service</span>
                 </NavLink>
               </li>
+
+              <li>
+                <NavLink to="/homeuser/user/FreeDelivery">
+                  <span className="icon">
+                    <i className="fa fa-archive"></i>
+                  </span>
+                  <span className="title">Free delivery</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/user/claimsEspace">
+                  <span className="icon">
+                  <i class="fa fa-file"></i>               
+                  </span>
+                  <span className="title">Claim</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/user/chat">
+                  <span className="icon">
+                  <i class="fa fa-comments"></i>          
+                          </span>
+                  <span className="title">Chat</span>
+                </NavLink>
+              </li>
+
               {livraisons != null ? (
                 <li>
                   <NavLink to="/homeuser/user/listeLivraison">
@@ -171,6 +197,36 @@ export default function Sidebar() {
                   <span className="title">Delivery</span>
                 </NavLink>
               </li>
+               
+              <li>
+                <NavLink to="/homeuser/admin/listFreeDeliveries">
+                  <span className="icon">
+                    <i className="fa fa-archive"></i>
+                  </span>
+                  <span className="title">Free Delivery</span>
+                </NavLink>
+
+              </li>
+              <li>
+                <NavLink to="/homeuser/admin/listClaims">
+                  <span className="icon">
+                <i class="fa fa-file"></i>               
+                 </span>
+                  <span className="title">Claims</span>
+                </NavLink>
+
+              </li>
+              <li>
+                <NavLink to="/homeuser/admin/chart">
+                  <span className="icon">
+                  <i class="fa fa-circle"></i>
+                                                     </span>
+                  <span className="title">Chart</span>
+                </NavLink>
+
+              </li>   
+
+             
               <li>
                 <NavLink to="/homeuser/admin/services">
                   <span className="icon">
@@ -178,6 +234,15 @@ export default function Sidebar() {
                   </span>
                   <span className="title">Services</span>
                 </NavLink>
+              </li>
+              <li>
+                <NavLink to="/homeuser/admin/chat">
+                  <span className="icon">
+                  <i class="fa fa-comments"></i>          
+                                                     </span>
+                  <span className="title">Chat</span>
+                </NavLink>
+
               </li>
             </ul>
           </div>

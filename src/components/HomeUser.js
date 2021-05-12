@@ -64,6 +64,25 @@ import DeliveryManPackage from "./user/DeliveryManPackage";
 import CiruitDeliveryMan from "./user/Map/CiruitDeliveryMan";
 import Functionarchive from "./user/ARCHIVE/Functionarchive";
 
+
+//takwa
+import FreeDeliveryUser from './user/freeDelivery'
+import addDelivery from "./user/freeDelivery/addDelivery";
+import ListFreeDelivery2 from "./user/freeDelivery/ListDeliveries2";
+import EditDelivery from "./user/freeDelivery/editDelivery";
+import passedDelivery from   "./user/freeDelivery/PassedDelivery";
+import AffectedDelivery from "./user/freeDelivery/affectedDelivery"
+import claims from   "./user/simpleChatbot/claims";
+import claimsEspace from   "./user/Claim";
+import simplechatbot from   "./user/simpleChatbot/chatbot";
+import Chat from "./admin/takwa/chat/messenger"
+
+
+import claimsAdmin from   "./admin/takwa/Claims";
+import FreeDeliveries from "./admin/takwa/FreeDeliveries"
+import ListAffectedTo from "./admin/takwa/listAffectedTo"
+import Chart from "./admin/takwa/Chart"
+
 export default function HomeUser(props) {
   const [connectUser, error] = useSelector(selectConnectuser);
   const dispatch = useDispatch();
@@ -157,6 +176,47 @@ export default function HomeUser(props) {
                   path="/homeuser/user/listeLivraisonCustomer"
                   component={ListeLivraisonCustomer}
                 />
+                  <Route
+                  path="/homeuser/user/FreeDelivery"
+                  component={FreeDeliveryUser}
+                />
+              <Route
+               path="/homeuser/user/addDelivery" 
+               component={addDelivery} 
+               />
+             <Route 
+             path="/homeuser/user/listDeliveries"
+             component={ListFreeDelivery2} />
+              <Route
+               path="/homeuser/user/editDelivery/:id" 
+               component={EditDelivery}
+                />
+              <Route 
+              path="/homeuser/user/passedDelivery"
+               component={passedDelivery}
+                />
+             <Route 
+             path="/homeuser/user/AffectedDelivery"
+              component={AffectedDelivery}
+               />
+             <Route
+              path="/homeuser/user/simplechatbot"
+               component={simplechatbot}
+                />
+              <Route 
+              path="/homeuser/user/claims" 
+              component={claims}
+               />
+             <Route 
+             path="/homeuser/user/claimsEspace" 
+             component={claimsEspace}
+              />
+              <Route path="/homeuser/user/chat" component={Chat} />
+
+
+
+
+
               </Switch>
             </div>
           ) : (
@@ -199,6 +259,17 @@ export default function HomeUser(props) {
                   path="/homeuser/admin/changepassword"
                   component={ChangePasswordAdmin}
                 />
+                <Route 
+                path="/homeuser/admin/listFreeDeliveries"
+                 component={FreeDeliveries}
+                 />
+              <Route
+               path="/homeuser/admin/listClaims"
+                component={claimsAdmin}/>
+              <Route path="/homeuser/admin/listAffectedTo" component={ListAffectedTo}/>
+              <Route path="/homeuser/admin/chart" component={Chart}/>
+              <Route path="/homeuser/admin/chat" component={Chat}/>
+
                 <Route path="/homeuser/admin/services" component={Service} />
                 <Route component={DashboardAdmin} />
               </Switch>

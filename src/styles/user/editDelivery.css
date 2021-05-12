@@ -1,0 +1,60 @@
+#secregister{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  #rowregister {
+    background: rgba(0, 0, 0, 0.205);
+    border-radius: 30px;
+    /* box-shadow: 12px 12px 22px grey; */
+    text-align: center;
+ /*   border:3px solid rgb(168, 173, 179); */
+    /* border: rgb(179, 181, 184); */
+    
+  }
+  #imgregister{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+  }
+  #btnregister{
+    border:none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  #btnregister:hover{
+    background: white;
+    border: 1px solid;
+    color: black;
+  }
+
+
+.breadcrumb_part {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: rgba(233, 233, 233, 0.932); */
+}
+
+.breadcrumb_part .breadcrumb_iner {
+  text-align: center;
+}
+
+
+.breadcrumb_part .breadcrumb_iner h2 {
+  font-size: 50px;
+  line-height: 1.2;
+  color: rgb(20, 19, 19);
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.text-center .form-row {
+  text-align: center;
+}

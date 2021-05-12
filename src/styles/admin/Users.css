@@ -16,12 +16,14 @@ table{
         width:min-content;
     }
     } */
+    
 #tableUsers{
     border: 1px solid #eeeeee;
     box-shadow: 12px 12px 22px grey;
     margin-top: 20px;
     margin-bottom: 50px;
 }
+
 
 .paginationBttns{
     width: 80%;
