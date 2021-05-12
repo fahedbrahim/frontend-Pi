@@ -41,7 +41,6 @@ import {
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const YOUR_GOOGLE_API_KEY_GOES_HERE = "AIzaSyDi8hiIYnovc_eDk9mP9JxqvTrPshi1XIQ";
 class Provider extends Component {
-  API_ENDPOINT = "/";
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +55,7 @@ class Provider extends Component {
       spinner: false,
       activeMarker: {},
       selectedPlace: {},
+  
       center: {
         lat: 36.858898,
         lng: 10.1965,
@@ -104,14 +104,18 @@ class Provider extends Component {
   static defaultProps = {
     zoom: 3,
   };
+ 
   componentDidMount() {
-    this.getLivraisons();
-    this.setState({
+   this.setState({
       userConnected: JSON.parse(localStorage.getItem("userInfo")),
     });
+    this.getLivraisons();
+   console.log("iddddd",this.props.con.id);
   }
+ 
   getLivraisons() {
-    axios.get("/livraison/getLivraisonWithUser").then((res) => {
+   // axios.get("/livraison/getLivraisonWithUser").then((res) => {
+    axios.get(`/livraison/getLivraisonWithCompany/${this.props.con.id}`).then((res) => {
       console.log(res.data.livraison);
       this.setState({ data: makeObjets(res.data.livraison) });
     });
@@ -377,7 +381,7 @@ class Provider extends Component {
             <img
               className="d-block w-100 imgcarousel "
               src={
-                "https://www.mapquestapi.com/staticmap/v5/map?key=2NmKbEIILnTEItWHHYldG7iA0TLPkG6g&locations=" +
+                "https://www.mapquestapi.com/staticmap/v5/map?key=8xHuBLULNIqgu6AKApGwWs3HYx2Q4TDQ&locations=" +
                 this.state.markersString +
                 "&size=1100,500@2x"
               }

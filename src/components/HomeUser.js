@@ -52,7 +52,7 @@ import ArchiveVehicle from "./company/Raed/ArchiveVehicle";
 import StatsVehicle from "./company/Raed/StatsVehicle";
 import ListeLivraisonCompany from "./company/ListeLivraisons/ListeLivraison";
 import stat from "./company/ChartStat";
-import ProviderCompany from "./company/Provider";
+import ProviderCompany from "./company/CheminProvider";
 
 
 import Classeditdelivery from "./user/Classeditdelivery";
