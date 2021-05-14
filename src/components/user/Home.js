@@ -51,8 +51,21 @@ export default function Home (props){
 
    
     return (
-        <div style={{height:"700px"}}>
-        <h1>Home</h1>
+        <div >
+        <div style={{marginBottom:'100px', marginTop:'100px'}}>
+        
+        <div className="row" style={{marginTop:'30px', marginBottom:'50px'}}>
+            <div className="col-lg-5 col-sm-12 text-center" style={{borderRadius:'10px', boxShadow:'12px 12px 22px grey'}} id="chartDashboard1"><i><h4>VEHICLE TOUR</h4></i><h5>Determine the rounds in order to carry out intervention or visit rounds</h5></div>
+            <div className="col-lg-1"></div>
+            <div className="col-lg-5 col-sm-12 text-center" style={{borderRadius:'10px', boxShadow:'12px 12px 22px grey'}}><i><h4>IMPROVE THE PERFORMANCE OF YOUR WORK</h4></i><h5>Each evening, prepare the tours to be carried out the next day</h5></div>
+        </div>
+        <div className="row" style={{marginTop:'30px', marginBottom:'170px'}}>
+            <div className="col-lg-5 col-sm-12 text-center" style={{borderRadius:'10px', boxShadow:'12px 12px 22px grey'}} id="chartDashboard2"><i><h4>EARN MONEY</h4></i><h5>You will soon be making a private or business trip with a vehicle and there is still some room in your trunk. Why not take the opportunity to try and earn some money by delivering parcels to individuals.</h5></div>
+            <div className="col-lg-1"></div>
+            <div className="col-lg-5 col-sm-12 text-center" style={{borderRadius:'10px', boxShadow:'12px 12px 22px grey'}}><i><h4>TRACK YOUR PACKAGE</h4></i><h5>Sending parcels is always meant to be simple and secure. You have the possibility to follow the shipment of your package at any time.</h5></div>
+        </div>
+   
+    </div>
         <ToastContainer />
         </div>
     )
